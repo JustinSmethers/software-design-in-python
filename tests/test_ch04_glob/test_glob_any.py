@@ -1,5 +1,5 @@
-from pattern_matcher.glob_any import Any
-from pattern_matcher.glob_lit import Lit
+from ch04_glob.glob_any import Any
+from ch04_glob.glob_lit import Lit
 
 def test_any_matches_empty():
     # /*/ matches ""

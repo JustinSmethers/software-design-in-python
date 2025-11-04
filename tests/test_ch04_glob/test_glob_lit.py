@@ -1,4 +1,4 @@
-from pattern_matcher.glob_lit import Lit
+from ch04_glob.glob_lit import Lit
 
 def test_literal_match_entire_string():
     # /abc/ matches "abc"

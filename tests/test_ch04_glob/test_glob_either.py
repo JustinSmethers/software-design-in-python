@@ -1,5 +1,5 @@
-from pattern_matcher.glob_either import Either
-from pattern_matcher.glob_lit import Lit
+from ch04_glob.glob_either import Either
+from ch04_glob.glob_lit import Lit
 
 def test_either_two_literals_first():
     # /{a,b}/ matches "a"
