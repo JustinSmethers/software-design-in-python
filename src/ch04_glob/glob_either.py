@@ -1,3 +1,4 @@
+from collections.abc import Iterable
 from .glob_null import Match
 
 # class Either:
@@ -12,13 +13,15 @@ from .glob_null import Match
 
 
 class Either(Match):
-    def __init__(self, left, right, rest=None):
+    def __init__(self, *alternatives, rest=None):
         super().__init__(rest)
-        self.left = left
-        self.right = right
+        if len(alternatives) == 1 and isinstance(alternatives[0], Iterable):
+            self.options = list(alternatives[0])
+        else:
+            self.options = list(alternatives)
 
     def _match(self, text, start):
-        for pat in (self.left, self.right):
+        for pat in self.options:
             if pat is None:
                 continue
             end = pat._match(text, start)
